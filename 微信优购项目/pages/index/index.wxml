@@ -17,20 +17,22 @@
                   widthFix  让图片的标签宽高 和 图片标签内容的宽高都等比例发生变化 -->
         <swiper indicator-dots autoplay="{{true}}" interval="3000" circular="{{true}}">
             <swiper-item wx:for="{{swiperList}}" wx:key="goods_id">
-                <navigator>
+                <navigator url="/pages/goods_detail/index?goods_id={{item.goods_id}}">
                     <image mode="widthFix" src="{{item.image_src}}"></image>
                 </navigator>
             </swiper-item>
         </swiper>
     </view>
     <!-- 轮播图 结束 -->
+
     <!-- 导航菜单开始 -->
     <view class="index_cate">
-        <navigator wx:for="{{catesList}}" wx:key="name">
+        <navigator url="/pages/category/index" open-type="switchTab" wx:for="{{catesList}}" wx:key="name">
             <image mode="widthFix" src="{{item.image_src}}"></image>
         </navigator>
     </view>
     <!-- 导航菜单结束 -->
+
     <!-- 楼层开始 -->
     <view class="index_floor">
         <view
@@ -51,6 +53,7 @@
                  wx:for-item="item2"
                  wx:for-index="index2"
                  wx:key="name"
+                 url="/pages/goods_list/index"
                  >
                  <image src="{{item2.image_src}}" mode="{{index2===0?'widthFix':'scaleToFill'}}">
                      
